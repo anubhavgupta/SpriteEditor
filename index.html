@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="spriteEditor.js"></script>
+    <style>
+        .image-containe,.generated-image {
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+        #canvas,#generated{
+            width: 100%;
+            height: 100%;
+            border: 1px solid blue;
+        }
+        #generated{
+            border: 1px solid red;
+        }
+        .section {
+            border: 1px solid black;
+            padding: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="controls section">
+    <div class="section">
+        cols:<input type="text" id="cols"/>
+        rows:<input type="text" id="rows"/>
+        image: <input type="file" id="fileSelector"/>
+    </div>
+    <div class="section">
+        skip-frames:<input type="text" id="skipFrames" placeholder="comma delimited num"/>
+    </div>
+    <div class="image-manipulation section">
+        trim-top:<input type="text" id="marginTop"/>
+        trim-left:<input type="text" id="marginLeft"/>
+        trim-right:<input type="text" id="marginRight"/>
+        trim-bottom:<input type="text" id="marginBottom"/>
+    </div>
+    <div class="finalization-box section">
+        new-cols:<input type="text" id="newCols"/>
+        new-rows:<input type="text" id="newRows"/>
+        <button id="generate">GENERATE SPRITE</button>
+    </div>
+
+</div>
+
+<div class="image-container">
+    SELECTED IMAGE:
+    <canvas id="canvas"></canvas>
+</div>
+
+<div class="generated-image">
+    GENERATED IMAGE(right click and click save image it):
+    <canvas id="generated"></canvas>
+</div>
+
+</body>
+</html>
