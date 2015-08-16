@@ -1,3 +1,6 @@
+/**
+ * Created by Anubhav Gupta on 8/12/2015.
+ */
 document.addEventListener('DOMContentLoaded', function () {
 
     var $cols = document.getElementById("cols");
@@ -13,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var context = $canvas.getContext("2d");
     var $newCols = document.getElementById("newCols");
     var $newRows = document.getElementById("newRows");
+    var $reverse = document.getElementById("reverse");
     var $canvasGenerated = document.getElementById("generated");
     var contextGenerated = $canvasGenerated.getContext("2d");
     var originalImage = new Image();
@@ -207,11 +211,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        for(var i=0;i<newRows;i++){
-            for(var j=0;j<newCols;j++){
-                contextGenerated.putImageData(imgFrames[(i*(newCols-1))+j],j*newCellWidth,i*newCellHeight);
+        if($reverse.checked){
+            for(var i=newRows- 1,k=0; i>=0,k<newRows;i--,k++){
+                for(var j=newCols- 1,l=0;j>=0,l<newCols;j--,l++){
+                    contextGenerated.putImageData(imgFrames[(i*newCols)+j],l*newCellWidth,k*newCellHeight);
+                }
             }
         }
+        else{
+            for(var i=0;i<newRows;i++){
+                for(var j=0;j<newCols;j++){
+                    contextGenerated.putImageData(imgFrames[(i*newCols)+j],j*newCellWidth,i*newCellHeight);
+                }
+            }
+        }
+
 
 
     }
